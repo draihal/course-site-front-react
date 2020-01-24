@@ -21,7 +21,15 @@
   },
   "homepage": "https://github.com/draihal/course-site-front-react#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-regular-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "@zeit/next-sass": "^1.0.1",
     "next": "^9.2.1",
+    "nextjs-fonts": "^0.22.0",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
