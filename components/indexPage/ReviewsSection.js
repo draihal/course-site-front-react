@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
-const ReviewsSection = () => (
+function urlFor (source) {
+    return (`${process.env.basePath}${source}`)
+}
+
+const ReviewsSection = props => (
     <div id="reviews" className="offset">
         <div className="jumbotron">
             <div className="container">
@@ -9,40 +13,23 @@ const ReviewsSection = () => (
                     <div className="heading-underline"> </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-6 reviews">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <img src="uploads/user1.png" alt="Фотогрфия студента" />
-                            </div>
-                            <div className="col-md-8">
-                                <blockquote>
-                                    <i className="fas fa-quote-left"> </i>
-                                    <i>Давно выяснено, что при оценке дизайна и композиции читаемый
-                                        текст мешает сосредоточиться. Lorem Ipsum используют потому,
-                                        что тот обеспечивает более или менее стандартное заполнение шаблона</i>
-                                    <hr className="reviews-hr" />
-                                        <cite>&#8212; Эрик, IOS разработчик</cite>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6 reviews">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <img src="uploads/user2.png" alt="Фотогрфия студента" />
-                            </div>
-                            <div className="col-md-8">
-                                <blockquote>
-                                    <i className="fas fa-quote-left"> </i>
-                                    <i>Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной
-                                        вёрстки и редакторы HTML используют Lorem Ipsum в качестве
-                                        текста по умолчанию, так что поиск по ключевым словам</i>
-                                    <hr className="reviews-hr" />
-                                        <cite>&#8212; Эдик, Java разработчик</cite>
-                                </blockquote>
+                    {props.reviews.map(review => (
+                        <div className="col-md-6 reviews" key={review.id}>
+                            <div className="row">
+                                <div className="col-md-4">
+                                    {review.student_image ? <img src={urlFor(review.student_image)} /> : <img src="static/default_user.jpg" />}
+                                </div>
+                                <div className="col-md-8">
+                                    <blockquote>
+                                        <i className="fas fa-quote-left"> </i>
+                                        <i>{review.text}</i>
+                                        <hr className="reviews-hr" />
+                                        <cite>&#8212; {review.student_first_name} {review.student_last_name}</cite>
+                                    </blockquote>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>

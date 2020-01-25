@@ -1,6 +1,10 @@
 import Link from 'next/link';
 
-const TeacherSection = () => (
+function urlFor (source) {
+    return (`${process.env.basePath}${source}`)
+}
+
+const TeacherSection = props => (
     <div id="teachers" className="offset">
         <div className="fixed-background">
             <div className="row dark">
@@ -12,27 +16,15 @@ const TeacherSection = () => (
                         </div>
                     </div>
                     <div className="row text-center">
-                        <div className="col-md-4 teachers">
-                            <h3>Иванов Иван</h3>
-                            <div className="feature">
-                                <img src="uploads/teacher2.png" alt="Фотография преподавателя" />
-                                    <p className="lead">Python QA</p>
+                        {props.teachers.map(teacher => (
+                            <div className="col-md-4 teachers" key={teacher.teacher_id}>
+                                <h3>{teacher.teacher_first_name} {teacher.teacher_last_name}</h3>
+                                <div className="feature">
+                                    {teacher.avatar ? <img src={urlFor(teacher.avatar)} /> : <img src="static/default_user.jpg" />}
+                                    <p className="lead">{teacher.position}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="col-md-4 teachers">
-                            <h3>Федоров Федор</h3>
-                            <div className="feature">
-                                <img src="uploads/teacher1.png" alt="Фотография преподавателя" />
-                                    <p className="lead">Python Backend</p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 teachers">
-                            <h3>Олегов Олег</h3>
-                            <div className="feature">
-                                <img src="uploads/teacher3.png" alt="Фотография преподавателя" />
-                                    <p className="lead">JavaScript developer</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                     <div className="text-center">
                         <div className="col-12">

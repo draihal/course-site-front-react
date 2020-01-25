@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const HomeSection = () => (
+const HomeSection = props => (
     <div id="home">
         {/* <!-- Start Landing Page Section --> */}
         <div className="landing">
@@ -11,8 +11,8 @@ const HomeSection = () => (
         </div>
         <div className="caption text-center">
             <div className="container">
-                <h1>Онлайн курсы</h1>
-                <h3>Онлайн образование для всех</h3>
+                <h1>{props.title}</h1>
+                <h3>{props.short_description}</h3>
                 <Link href="/">
                     <a className="btn btn-outline-light btn-lg">Выбрать</a>
                 </Link>

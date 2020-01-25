@@ -1,14 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserGraduate, faUser, faUserFriends } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 
-const CoursesSection = () => (
+const CoursesSection = props => (
     <div id="courses" className="offset">
         <div className="container">
             <div className="col-12 narrow text-center">
                 <h1>Курсы</h1>
-                <p className="lead">Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне.
-                    Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
-                    В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов,
-                    используя Lorem Ipsum для распечатки образцов.</p>
+                <p className="lead">{props.description}</p>
                 <Link href="/"><a className="btn btn-secondary btn-md">Выбрать</a></Link>
             </div></div>
         {/* <!--- Start Jumbotron --> */}
@@ -23,23 +22,23 @@ const CoursesSection = () => (
                         <div className="row text-center">
                             <div className="col-md-4">
                                 <div className="feature">
-                                    <i className="fas fa-user-graduate fa-4x" data-fa-transform="shrink-3 up-5" />
-                                    <h3>999 студентов</h3>
-                                    <p>Прошли обучение почти 1000 человек!</p>
+                                    <FontAwesomeIcon icon={faUserGraduate} size="4x" transform="shrink-3 up-5" />
+                                    <h3>{props.number_of_students} студентов</h3>
+                                    <p>Некоторый текст!</p>
                                 </div>
                             </div>
                             <div className="col-md-4">
                                 <div className="feature">
-                                    <i className="fas fa-users fa-4x" data-fa-transform="shrink-3 up-5" />
-                                    <h3>99 Групп</h3>
-                                    <p>Прошли обучение почти 100 групп!</p>
+                                    <FontAwesomeIcon icon={faUser} size="4x" transform="shrink-3 up-5" />
+                                    <h3>{props.number_of_groups} Групп</h3>
+                                    <p>Еще какой-то текст!</p>
                                 </div>
                             </div>
                             <div className="col-md-4">
                                 <div className="feature">
-                                    <i className="fas fa-user-friends fa-4x" data-fa-transform="shrink-3 up-5" />
-                                    <h3>33 преподавателя</h3>
-                                    <p>Лучшие в своей области!</p>
+                                    <FontAwesomeIcon icon={faUserFriends} size="4x" transform="shrink-3 up-5" />
+                                    <h3>{props.number_of_teachers} преподавателей</h3>
+                                    <p>И еще текст!</p>
                                 </div>
                             </div>
                         </div>

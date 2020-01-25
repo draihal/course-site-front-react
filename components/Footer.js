@@ -4,6 +4,8 @@ import { faTelegram } from '@fortawesome/free-brands-svg-icons'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faVk } from '@fortawesome/free-brands-svg-icons'
 
+import Link from 'next/link';
+
 
 const Footer = () => (
     <div id="footer">
@@ -28,7 +30,7 @@ const Footer = () => (
                     </div>
                     <div className="footer-column col-md-2">
                         <ul className="list-unstyled">
-                            <li><a href="#">О нас</a></li>
+                            <li><Link href="/about"><a>О нас</a></Link></li>
                             <li><a href="#">СМИ о нас</a></li>
                             <li><a href="#">Отзывы</a></li>
                             <li><a href="#">Контакты</a></li>
