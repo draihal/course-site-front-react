@@ -7,22 +7,22 @@ import ReviewsSection from "../components/indexPage/ReviewsSection";
 import fetch from 'isomorphic-unfetch';
 
 
-const Homepage = ({errorCode, props}) => {
+const Homepage = ({errorCode, indexPage}) => {
     if (errorCode) {
         return <Error statusCode={errorCode}/>
     }
     return <Layout>
         <HomeSection
-            title={props.indexPage.title}
-            short_description={props.indexPage.short_description}/>
+            title={indexPage.title}
+            short_description={indexPage.short_description}/>
         <CoursesSection
-            description={props.indexPage.description}
-            number_of_students={props.indexPage.number_of_students}
-            number_of_groups={props.indexPage.number_of_groups}
-            number_of_teachers={props.indexPage.number_of_teachers}/>
-        <TeacherSection teachers={props.indexPage.random_three_teachers}/>
+            description={indexPage.description}
+            number_of_students={indexPage.number_of_students}
+            number_of_groups={indexPage.number_of_groups}
+            number_of_teachers={indexPage.number_of_teachers}/>
+        <TeacherSection teachers={indexPage.random_three_teachers}/>
         {/*<PartnersSection/>*/}
-        <ReviewsSection reviews={props.indexPage.random_two_reviews}/>
+        <ReviewsSection reviews={indexPage.random_two_reviews}/>
     </Layout>
 };
 
