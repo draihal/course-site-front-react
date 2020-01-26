@@ -43,9 +43,11 @@ const Navbar = () => (
                             <Link href="/#reviews"><a className="nav-link">Отзывы</a></Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="login-icon" href="login.html">
-                                <FontAwesomeIcon icon={faSignInAlt} size="2x" />
-                            </a>
+                            <Link href="/login">
+                                <a className="nav-link" id="login-icon">
+                                    <FontAwesomeIcon icon={faSignInAlt} size="2x" />
+                                </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" id="bell-icon" href="#">
