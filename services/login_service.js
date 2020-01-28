@@ -15,7 +15,7 @@ export async function login(inputs) {
   if (res.error) {
     return res.error;
   } else if (!res.data || !res.data.access) {
-    return "Something went wrong!";
+    return "Wrong password or username!";
   }
   const token = res.data.access;
   const refreshToken = res.data.refresh;  // TODO: add refresh functionality
