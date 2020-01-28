@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons'
-import { faBell } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 import Link from 'next/link';
 
@@ -50,9 +50,9 @@ const Navbar = () => (
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" id="bell-icon" href="#">
+                            <Link href="/profile"><a className="nav-link" id="bell-icon">
                                 <FontAwesomeIcon icon={faBell} size="2x" />
-                            </a>
+                            </a></Link>
                         </li>
                     </ul>
                 </div>
