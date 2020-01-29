@@ -14,11 +14,8 @@ function Profile(props) {
     await Router.push("/login");
   };
 
-  // console.log(props.auth);
-
   return <Layout>
     <p>{props.message}</p>
-    {/*<div>{props.auth.authorizationString}</div>*/}
     {props.auth.isAuthenticated ? "YES" : "NO"}
     <button onClick={logout}>Logout</button>
     <style global jsx>{`

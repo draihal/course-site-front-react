@@ -3,7 +3,15 @@ import { catchAxiosError } from "./error";
 
 
 const baseConfig = {
+  baseURL: `${process.env.basePath}`
+};
+
+const baseConfigWithHeaders = {
   baseURL: `${process.env.basePath}`,
+  headers: {
+    "accept": "application/json",
+    "Content-Type": "application/json"
+  },
 };
 
 export const post = (url, data) => {
@@ -17,3 +25,5 @@ export const get = async (url, config = {}) => {
   };
   return await axios.get(url, axiosConfig).catch(catchAxiosError)
 };
+
+

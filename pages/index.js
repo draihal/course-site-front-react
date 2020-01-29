@@ -21,7 +21,7 @@ const Homepage = ({errorCode, indexPage}) => {
             number_of_groups={indexPage.number_of_groups}
             number_of_teachers={indexPage.number_of_teachers}/>
         <TeacherSection teachers={indexPage.random_three_teachers}/>
-        {/*<PartnersSection/>*/}
+        {/*<PartnersSection/>  // TODO: add https://www.framer.com/api/motion/ */}
         <ReviewsSection reviews={indexPage.random_two_reviews}/>
     </Layout>
 };

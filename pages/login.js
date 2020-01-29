@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { login } from "../services/login_service";
 import Layout from '../components/Layout';
+import Link from 'next/link';
 
 
-function Page() {
-  // these values are hardcoded since our main.go api only accepts this auth combo
+function Login() {
   const initialValues = { email: "", password: "", };
 
   const [inputs, setInputs] = useState(initialValues);
@@ -26,16 +26,15 @@ function Page() {
 
   return <Layout>
     <form className="form-signin" onSubmit={handleSubmit}>
-      <h1 className="h3 mb-3 font-weight-normal">Вход</h1>
-      {error ? <p>{error}</p> : null}
-      <p>{inputs.email} {inputs.password}</p>
+      <h1 className="h3 mb-3 font-weight-normal text-center">Вход</h1>
+      {error ? <p className="text-center">{error}</p> : null}
       <label htmlFor="inputEmail" className="sr-only">Email</label>
       <input type="email" id="inputEmail" name="email" className="form-control" placeholder="Email" onChange={handleInputChange} defaultValue={inputs.email} required autoFocus />
       <label htmlFor="inputPassword" className="sr-only">Пароль</label>
-      <input type="password" id="inputPassword" name="password" className="form-control" placeholder="Password" onChange={handleInputChange} defaultValue={inputs.password} required />
-      <button className="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
-      <p className="mt-5 mb-3 text-muted">Еще не зарегистрированы?</p>
-      <button className="btn btn-lg btn-primary btn-block" type="registration">Регистрация</button>
+      <input type="password" id="inputPassword" name="password" className="form-control" placeholder="Пароль" onChange={handleInputChange} defaultValue={inputs.password} required />
+      <button className="btn btn-lg btn-secondary btn-block" type="submit">Войти</button>
+      <p className="mt-5 mb-3 text-muted text-center">Еще не зарегистрированы?</p>
+      <Link href="/registration"><button className="btn btn-lg btn-secondary btn-block" type="registration">Регистрация</button></Link>
     </form>
     <style global jsx>{`
       .main{
@@ -54,12 +53,12 @@ function Page() {
         bottom: 0;
         width: 100%;
         /* Set the fixed height of the footer here */
-        height: 176px;
+        height: 80px;
         background-color: #f5f5f5;
       }
       .form-signin {
         width: 100%;
-        max-width: 330px;
+        max-width: 350px;
         padding: 15px;
         margin: auto;
       }
@@ -76,18 +75,21 @@ function Page() {
       .form-signin .form-control:focus {
         z-index: 2;
       }
+      .form-signin input{
+        border-radius: 0;
+      }
       .form-signin input[type="email"] {
         margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
       }
       .form-signin input[type="password"] {
         margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+      }
+      .form-signin .btn-secondary {
+        padding: .6rem 1.2rem;
+        margin: 0;
       }
     `}</style>
   </Layout>;
 }
 
-export default Page;
+export default Login;

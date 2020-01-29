@@ -9,10 +9,11 @@ export function catchAxiosError(err) {
   if (err.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
-    console.log(err.response.data.message);
+    console.log(err.response.data[Object.keys(err.response.data)[0]]);
     console.log(err.response.status);
+    console.log(JSON.stringify(err.response));
     // console.log(err.response.headers);
-    message = err.response.data.message;
+    message = err.response.data[Object.keys(err.response.data)[0]];
   } else if (err.request) {
     // The request was made but no response was received
     // `err.request` is an instance of XMLHttpRequest in the browser and an instance of
