@@ -17,7 +17,7 @@ const Layout = props => (
 
     <Navbar />
 
-    <div className="content-wrapper">{props.children}</div>
+    <div className="content-wrapper main">{props.children}</div>
 
     <Footer />
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
