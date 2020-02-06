@@ -2,16 +2,10 @@ import '../styles/styles.scss'
 import '../styles/fixed.scss'
 import '../styles/fortawesome.scss'
 import { Provider } from 'react-redux';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import { initStore } from '../redux';
 import initialize from '../services/initialize';
-
-// // This default export is required in a new `pages/_app.js` file.
-// export default function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />
-// }
-
 
 
 export default withRedux(initStore, { debug: true })(

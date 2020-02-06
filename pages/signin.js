@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-// import { login } from "../services/login_service";
-import Layout from '../components/Layout';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
-// import initialize from '../services/initialize';
+import Layout from '../components/Layout';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -14,11 +12,6 @@ class Signin extends React.Component {
       password: ''
     };
   }
-
-  // static getInitialProps(ctx) {
-  //   initialize(ctx);
-  // }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.authenticate(
@@ -26,7 +19,6 @@ class Signin extends React.Component {
         'login'
     );
   }
-
   render() {
     return <Layout>
       <form className="form-signin" onSubmit={this.handleSubmit.bind(this)}>
@@ -38,8 +30,6 @@ class Signin extends React.Component {
                name="email"
                className="form-control"
                placeholder="Email"
-            // onChange={handleInputChange}
-            // defaultValue={inputs.email}
                value={this.state.email}
                onChange={e => this.setState({ email: e.target.value })}
                required autoFocus />
@@ -49,8 +39,6 @@ class Signin extends React.Component {
                name="password"
                className="form-control"
                placeholder="Пароль"
-            // onChange={handleInputChange}
-            // defaultValue={inputs.password}
                value={this.state.password}
                onChange={e => this.setState({ password: e.target.value })}
                required />
@@ -113,7 +101,6 @@ class Signin extends React.Component {
     `}</style>
     </Layout>;
   }
-
 }
 
 export default connect(

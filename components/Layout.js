@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Layout = ({ children, title, description, isAuthenticated, deauthenticate }) => (
   <div className="site-wrapper">
@@ -21,7 +21,6 @@ const Layout = ({ children, title, description, isAuthenticated, deauthenticate 
 
     <div className="content-wrapper main">{children}</div>
 
-    {/*{isAuthenticated && <li onClick={deauthenticate}><a>Sign Out</a></li>}*/}
     <Footer />
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
               integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -35,8 +34,6 @@ const Layout = ({ children, title, description, isAuthenticated, deauthenticate 
 
   </div>
 );
-
-// export default Layout;
 
 const mapStateToProps = (state) => (
   {isAuthenticated: !!state.authentication.token}

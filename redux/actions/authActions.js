@@ -2,6 +2,12 @@ import Router from 'next/router';
 import axios from 'axios';
 import { AUTHENTICATE, DEAUTHENTICATE, USER } from '../types';
 import { setCookie, removeCookie } from '../../services/cookie';
+import { redirectToLogin } from "../../services/redirect_service";
+
+
+// TODO: add rest_service with catch error
+// TODO: add refresh token
+
 
 // register user
 const register = ({ email, first_name, last_name, password, phone_number, is_partner, is_student, is_teacher }, type) => {
@@ -12,7 +18,6 @@ const register = ({ email, first_name, last_name, password, phone_number, is_par
     axios.post(`${process.env.basePath}/api/v1/users/`, {email, first_name, last_name, password, phone_number, is_partner, is_student, is_teacher })
         .then((response) => {
           Router.push('/signin');
-          console.log(response);
         })
         .catch((error) => {
           switch (error.response.status) {
@@ -42,17 +47,12 @@ const authenticate = ({ email, password }, type) => {
     console.log(email);
     axios.post(`${process.env.basePath}/api/v1/jwt/create/`, { email, password })
         .then((response) => {
-          // console.log(`---------------response.data.data.user.token--------------- ${response.data.data.user.token}`);
-          console.log(`------------response.data.access--------------- ${response.data.access}`);
           setCookie('token', response.data.access);
           Router.push('/profile');
           dispatch({type: AUTHENTICATE, payload: response.data.access});
         })
         .catch((error) => {
-          console.log(error);
           if (error.response) {
-            console.log(error);
-            console.log(error.response);
             switch (error.response.status) {
               case 422:
                 alert(error.response.data[Object.keys(error.response.data)[0]]);
@@ -84,6 +84,15 @@ const deauthenticate = () => {
   return (dispatch) => {
     removeCookie('token');
     Router.push('/');
+    // redirectToLogin(server);
+    // if (ctx.req) {
+    //   // If `ctx.req` is available it means we are on the server.
+    //   ctx.res.writeHead(302, { Location: '/' });
+    //   ctx.res.end();
+    // } else {
+    //   // This should only happen on client.
+    //   Router.push('/');
+    // }
     dispatch({type: DEAUTHENTICATE});
   };
 };
@@ -99,10 +108,8 @@ const getUser = ({ token }, type) => {
           dispatch({ type: USER, payload: response.data.first_name });
         })
         .catch((error) => {
-          console.log(`--------------- ${error.response}`);
           switch (error.response.status) {
             case 401:
-              console.log(`--------------- ${JSON.stringify(error.response)}`);
               Router.push('/signin');
               break;
             case 422:
@@ -122,7 +129,6 @@ const getUser = ({ token }, type) => {
         });
   };
 };
-
 
 export default {
   register,
