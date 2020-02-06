@@ -1,23 +1,25 @@
 import Head from 'next/head';
+import { connect } from 'react-redux';
+import actions from '../redux/actions';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const Layout = props => (
+const Layout = ({ children, title, description, isAuthenticated, deauthenticate }) => (
   <div className="site-wrapper">
     <Head>
       <title>
-        {props.title ? `${props.title} | ` : ''}
+        {title ? `${title} | ` : ''}
         Онлайн курсы
       </title>
-      {props.description ? <meta name="description" content={props.description} /> : null}
+      {description ? <meta name="description" content={description} /> : null}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
               crossOrigin="anonymous" />
     </Head>
 
-    <Navbar />
+    <Navbar isAuthenticated={isAuthenticated} deauthenticate={deauthenticate} />
 
-    <div className="content-wrapper main">{props.children}</div>
+    <div className="content-wrapper main">{children}</div>
 
     <Footer />
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -33,5 +35,8 @@ const Layout = props => (
   </div>
 );
 
-export default Layout;
+const mapStateToProps = (state) => (
+  {isAuthenticated: !!state.authentication.token}
+);
 
+export default connect(mapStateToProps, actions)(Layout);
