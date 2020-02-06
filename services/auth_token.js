@@ -1,5 +1,4 @@
 import jwtDecode from "jwt-decode";
-import ServerCookie from "next-cookies";
 
 
 export class AuthToken {

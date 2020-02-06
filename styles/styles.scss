@@ -35,10 +35,16 @@ a:hover {
 nav.black {
     background: rgba(0, 0, 0, 0.6)!important;
 }
+#user-icon svg.svg-inline--fa {
+    height: 1.3rem;
+}
 #bell-icon svg.svg-inline--fa {
     height: 1.3rem;
 }
 #login-icon svg.svg-inline--fa {
+    height: 1.3rem;
+}
+#logout-icon svg.svg-inline--fa {
     height: 1.3rem;
 }
 .navbar-nav li {

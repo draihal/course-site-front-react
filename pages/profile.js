@@ -1,52 +1,73 @@
 import React from "react";
-import { AuthProps, privateRoute } from "../components/private_route";
-import Cookie from "js-cookie";
-import Router from "next/router";
-import { COOKIES } from "../services/login_service";
+import { connect } from 'react-redux';
+import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import { get } from "../services/rest_service";
-import { AuthToken } from "../services/auth_token";
 
-
-function Profile(props) {
-  const logout = async () => {
-    Cookie.remove(COOKIES.authToken);
-    await Router.push("/login");
-  };
-
-  return <Layout>
-    <p>{props.message}</p>
-    {props.auth.isAuthenticated ? "YES" : "NO"}
-    <button onClick={logout}>Logout</button>
-    <style global jsx>{`
-        body,html{
-            height:100%;
-        }
-        .main{
-            height:auto;
-            min-height:100%;
-            padding-top: 6rem;
-        }
-    `}</style>
-  </Layout>
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
+    async componentDidMount() {
+        await this.props.getUser(
+            { token: this.props.authentication.token },
+            'profile'
+        );
+    }
+    render() {
+        return this.props.authentication.user ? (
+            <Layout title="Profile">
+                <h3>You are logged in as {this.props.authentication.user}</h3>
+                <style global jsx>{`
+                  .main{
+                    padding-top: 12rem;
+                  }
+                  html {
+                    min-height: 100%;
+                    position: relative;
+                  }
+                  body {
+                    /* Margin bottom by footer height */
+                    margin-bottom: 60px;
+                  }
+                  #footer {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    /* Set the fixed height of the footer here */
+                    height: 80px;
+                    background-color: #f5f5f5;
+                  }
+                `}</style>
+            </Layout>
+        ) : (
+            <Layout title="users">
+                <h3>You are not authenticated.</h3>
+                <style global jsx>{`
+                  .main{
+                    padding-top: 12rem;
+                  }
+                  html {
+                    min-height: 100%;
+                    position: relative;
+                  }
+                  body {
+                    /* Margin bottom by footer height */
+                    margin-bottom: 60px;
+                  }
+                  #footer {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    /* Set the fixed height of the footer here */
+                    height: 80px;
+                    background-color: #f5f5f5;
+                  }
+                `}</style>
+            </Layout>
+        );
+    }
 }
 
-Profile.getInitialProps = async ({ auth }) => {
-  const res = await get("/api/v1/users/me/", {
-    headers: {
-      Authorization: auth.authorizationString
-    }
-  });
-
-  let message = "";
-
-  if (res.error) {
-    message = res.error;
-  } else if (res.data && res.data.message) {
-    message = res.data.message
-  }
-
-  return { message, auth, };
-};
-
-export default privateRoute(Profile);
+export default connect(state => state, actions)(Users);
