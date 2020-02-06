@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faSignOutAlt, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import Link from 'next/link';
 
 
-const Navbar = () => (
+const Navbar = (props) => (
     <div>
         <nav className="navbar navbar-expand-lg navbar-dark black fixed-top">
             <div className="container">
@@ -41,18 +41,30 @@ const Navbar = () => (
                         <li className="nav-item">
                             <Link href="/#reviews"><a className="nav-link">Отзывы</a></Link>
                         </li>
-                        <li className="nav-item">
-                            <Link href="/login">
+                        {!props.isAuthenticated && (<li className="nav-item">
+                            <Link href="/signin">
                                 <a className="nav-link" id="login-icon">
                                     <FontAwesomeIcon icon={faSignInAlt} size="2x" />
                                 </a>
                             </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link href="/profile"><a className="nav-link" id="bell-icon">
+                        </li>)}
+                        {props.isAuthenticated && (<li className="nav-item">
+                            <Link href="/profile">
+                                <a className="nav-link" id="user-icon">
+                                    <FontAwesomeIcon icon={faUserAlt} size="2x" />
+                                </a>
+                            </Link>
+                        </li>)}
+                        {props.isAuthenticated && (<li className="nav-item">
+                            <a className="nav-link" id="bell-icon">
                                 <FontAwesomeIcon icon={faBell} size="2x" />
-                            </a></Link>
-                        </li>
+                            </a>
+                        </li>)}
+                        {props.isAuthenticated && (<li onClick={props.deauthenticate} className="nav-item">
+                            <a className="nav-link" id="logout-icon">
+                                <FontAwesomeIcon icon={faSignOutAlt} size="2x" />
+                            </a>
+                        </li>)}
                     </ul>
                 </div>
             </div>
