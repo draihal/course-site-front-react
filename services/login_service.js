@@ -1,7 +1,7 @@
 // import axios, { AxiosRequestConfig } from "axios";
 import Cookies from "js-cookie";
 import Router from "next/router";
-import { LoginInputs } from "../pages/login";
+// import { LoginInputs } from "../pages/signin";
 import { catchAxiosError } from "./error";
 import { post } from "./rest_service";
 
