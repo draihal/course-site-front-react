@@ -1,10 +1,12 @@
 import cookie from 'js-cookie';
 
+const inOneHour = new Date(new Date().getTime() + 60 * 60 * 1000);
+
 export const setCookie = (key, value) => {
   if (process.browser) {
     cookie.set(key, value, {
-      expires: 1,
-      path: '/'
+      expires: inOneHour,
+      // path: '/'
     });
   }
 };
@@ -12,7 +14,8 @@ export const setCookie = (key, value) => {
 export const removeCookie = (key) => {
   if (process.browser) {
     cookie.remove(key, {
-      expires: 1
+      // expires: 1,
+      // path: '/'
     });
   }
 };
