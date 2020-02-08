@@ -29,9 +29,9 @@ class Signup extends React.Component {
           last_name: this.state.last_name,
           password:this.state.password,
           phone_number: this.state.phone_number,
-          is_partner:this.state.is_partner,
-          is_student:this.state.is_student,
-          is_teacher:this.state.is_teacher,
+          is_partner: this.state.is_partner,
+          is_student: this.state.is_student,
+          is_teacher: this.state.is_teacher,
         },
         'register'
     );

@@ -43,7 +43,6 @@ const authenticate = ({ email, password }, type) => {
     throw new Error('Wrong API call!');
   }
   return (dispatch) => {
-    console.log(email);
     axios.post(`${process.env.basePath}/api/v1/jwt/create/`, { email, password })
         .then((response) => {
           setCookie('token', response.data.access);
