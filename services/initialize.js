@@ -1,6 +1,6 @@
 import Router from 'next/router';
 import actions from '../redux/actions';
-import {getCookie, removeCookie} from '../services/cookie';
+import { getCookie } from '../services/cookie';
 import { AuthToken } from "../services/auth_token";
 
 
@@ -10,12 +10,8 @@ export default function(ctx) {
   if(ctx.isServer) {
     if(ctx.req.headers.cookie) {
       const token = getCookie('token', ctx.req);
-      // checks if the token is being expired, and if so, deauthenticate user:
-      const auth = new AuthToken(token);
-      if (auth.isExpired) {
-        ctx.store.dispatch(actions.deauthenticate());
-      } else {
-        ctx.store.dispatch(actions.reauthenticate(token));
+      if (token){
+          ctx.store.dispatch(actions.reauthenticate(token));
       }
     }
   } else {

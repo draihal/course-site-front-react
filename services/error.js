@@ -1,5 +1,3 @@
-import { AxiosError } from "axios";
-
 
 export function catchAxiosError(err) {
   // Something happened in setting up the request that triggered an Error

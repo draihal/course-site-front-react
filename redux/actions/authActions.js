@@ -2,7 +2,6 @@ import Router from 'next/router';
 import axios from 'axios';
 import { AUTHENTICATE, DEAUTHENTICATE, USER } from '../types';
 import { setCookie, removeCookie } from '../../services/cookie';
-import { redirectToLogin } from "../../services/redirect_service";
 
 
 // TODO: add rest_service with catch error
@@ -83,16 +82,7 @@ const reauthenticate = (token) => {
 const deauthenticate = () => {
   return (dispatch) => {
     removeCookie('token');
-    Router.push('/');
-    // redirectToLogin(server);
-    // if (ctx.req) {
-    //   // If `ctx.req` is available it means we are on the server.
-    //   ctx.res.writeHead(302, { Location: '/' });
-    //   ctx.res.end();
-    // } else {
-    //   // This should only happen on client.
-    //   Router.push('/');
-    // }
+    Router.push('/signin');
     dispatch({type: DEAUTHENTICATE});
   };
 };
@@ -129,6 +119,7 @@ const getUser = ({ token }, type) => {
         });
   };
 };
+
 
 export default {
   register,
