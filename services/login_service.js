@@ -18,7 +18,7 @@ export async function login(inputs) {
     return "Wrong password or username!";
   }
   const token = res.data.access;
-  const refreshToken = res.data.refresh;  // TODO: add refresh functionality
+  const refreshToken = res.data.refresh;
 
   // store the token into cookies
   Cookies.set(COOKIES.authToken, token, {
