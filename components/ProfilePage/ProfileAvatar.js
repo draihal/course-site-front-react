@@ -3,7 +3,6 @@ import React from "react";
 import axios from "axios";
 
 
-// const AvatarForProfile = props => (
 class ProfileAvatar extends React.Component {
   constructor(props) {
     super(props);
@@ -27,26 +26,18 @@ class ProfileAvatar extends React.Component {
   };
   render() {
     return <div className="text-center">
-    {/*<img src="//placehold.it/200" className="avatar img-circle" alt="avatar"/>*/}
-    {this.props.avatar ? <img src={this.props.avatar} alt="avatar" /> : <img src="static/default_user.jpg" alt="avatar" />}
-    <hr />
-    {/*<h6>Загрузить другую фотографию...</h6>*/}
-    {/*<input type="file" className="form-control"/>*/}
-    {/*<button className="btn btn-secondary btn-md" type="submit">Изменить</button>*/}
-    <form
-      onSubmit={this.handleSubmit.bind(this)}
-      // onSubmit={this.handleSubmit}
-    >
-            <input type="file"
-                   id="image"
-                   accept="image/png, image/jpeg"
-                   className="form-control"
-                   // onChange={this.handleImageChange}
-                   onChange={e => this.setState({ avatar: e.target.files[0] })}
-                   required/>
-          <button className="btn btn-secondary btn-md" type="submit">Изменить</button>
-        </form>
-  </div>
+      {this.props.avatar ? <img src={this.props.avatar} alt="avatar" /> : <img src="static/default_user.jpg" alt="avatar" />}
+      <hr />
+      <form onSubmit={this.handleSubmit.bind(this)} >
+        <input type="file"
+               id="image"
+               accept="image/png, image/jpeg"
+               className="form-control"
+               onChange={e => this.setState({ avatar: e.target.files[0] })}
+               required/>
+        <button className="btn btn-secondary btn-md" type="submit">Изменить</button>
+      </form>
+    </div>
   }
 }
 
