@@ -22,7 +22,6 @@ class Signup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.register(
         { email: this.state.email,
           first_name: this.state.first_name,

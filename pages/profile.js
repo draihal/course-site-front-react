@@ -7,12 +7,12 @@ import MainProfileSection from "../components/ProfilePage/MainProfileSection";
 import {catchAxiosError} from "../services/error";
 
 
-const Profile = ({ user, error }) => (
+const Profile = ({ user, token, error }) => (
   <Layout title="Мой профиль">
     {(user && (
       <div>
         {error ? <p className="text-center">{error}</p> : null}
-        <MainProfileSection user={user}/>
+        <MainProfileSection user={user} token={token}/>
       </div>
     )) ||
     'Пожалуйста войдите!'}
@@ -68,6 +68,11 @@ const Profile = ({ user, error }) => (
             margin-left: 0rem;
             margin-right: 1rem;
           }
+          .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+           }
       `}
     </style>
   </Layout>
@@ -84,7 +89,7 @@ Profile.getInitialProps = async ctx => {
     });
     const user = response.data.results[0];
     return {
-      user
+      user, token
     };
   }
 };
