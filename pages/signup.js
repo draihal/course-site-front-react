@@ -22,16 +22,15 @@ class Signup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.register(
         { email: this.state.email,
           first_name: this.state.first_name,
           last_name: this.state.last_name,
           password:this.state.password,
           phone_number: this.state.phone_number,
-          is_partner:this.state.is_partner,
-          is_student:this.state.is_student,
-          is_teacher:this.state.is_teacher,
+          is_partner: this.state.is_partner,
+          is_student: this.state.is_student,
+          is_teacher: this.state.is_teacher,
         },
         'register'
     );

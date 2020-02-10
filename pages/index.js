@@ -5,6 +5,8 @@ import TeacherSection from "../components/indexPage/TeacherSection";
 import PartnersSection from "../components/indexPage/PartnersSection";
 import ReviewsSection from "../components/indexPage/ReviewsSection";
 import fetch from 'isomorphic-unfetch';
+import axios from "axios";
+import {catchAxiosError} from "../services/error";
 
 
 const Homepage = ({errorCode, indexPage}) => {
@@ -28,6 +30,7 @@ const Homepage = ({errorCode, indexPage}) => {
 
 Homepage.getInitialProps = async function() {
     const res = await fetch(`${process.env.basePath}/api/v1/pages/index/`);
+    console.log(res);
     const errorCode = res.statusCode > 200 ? res.statusCode : false;
     const indexPage = await res.json();
     return { errorCode, indexPage };

@@ -1,8 +1,6 @@
 import Link from 'next/link';
+import urlFor from '../../services/urlFor';
 
-function urlFor (source) {
-    return (`${process.env.basePath}${source}`)
-}
 
 const TeacherSection = props => (
     <div id="teachers" className="offset">
