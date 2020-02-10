@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
 import MainProfileSection from "../components/ProfilePage/MainProfileSection";
-import {catchAxiosError} from "../services/error";
 
 
 const Profile = ({ user, token, error }) => (
@@ -93,30 +92,5 @@ Profile.getInitialProps = async ctx => {
     };
   }
 };
-
-// class Users extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//         };
-//     }
-//     async componentDidMount() {
-//         await this.props.getUser(
-//             { token: this.props.authentication.token },
-//             'profile'
-//         );
-//     }
-//     render() {
-//         return this.props.authentication.user ? (
-//             <Layout title="Profile">
-//                 <h3>You are logged in as {this.props.authentication.user}</h3>
-//             </Layout>
-//         ) : (
-//             <Layout title="users">
-//                 <h3>You are not authenticated.</h3>
-//             </Layout>
-//         );
-//     }
-// }
 
 export default connect(state => state, actions)(Profile);

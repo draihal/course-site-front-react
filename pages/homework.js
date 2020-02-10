@@ -5,7 +5,6 @@ import actions from '../redux/actions';
 import Layout from '../components/Layout';
 
 
-// const Homework = ({ lesson, title, token, error }) => {
 class Homework extends React.Component {
   constructor(props) {
     super(props);

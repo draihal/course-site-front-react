@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import ModuleSection from "../components/GroupPage/ModuleSection";
 
 
-const Group = ({ group, token, error }) => {
+const Group = ({ group }) => {
   return (
     <Layout>
       {(group && (
