@@ -11,7 +11,7 @@ export default function(ctx) {
     if(ctx.req.headers.cookie) {
       const token = getCookie('token', ctx.req);
       if (token){
-          ctx.store.dispatch(actions.reauthenticate(token));
+        ctx.store.dispatch(actions.reauthenticate(token));
       }
     }
   } else {
@@ -21,13 +21,11 @@ export default function(ctx) {
     if (token && auth.isExpired) {
       ctx.store.dispatch(actions.deauthenticate());
     }
-
-    if(token && !auth.isExpired && (ctx.pathname === '/signin' || ctx.pathname === '/signup')) {
+    if(token && (ctx.pathname === '/signin' || ctx.pathname === '/signup')) {
       setTimeout(function() {
         Router.push('/');
       }, 0);
     }
   }
-
 
 }

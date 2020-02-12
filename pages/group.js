@@ -12,7 +12,7 @@ const Group = ({ group }) => {
       {(group && (
         <div className="group py-4">
           <div className="container">
-            <h2>Моя группа: {group.slug}</h2>
+            <h2>Группа: {group.slug}</h2>
             <hr/>
             <div className="row">
               <div className="col-md-6">Дата начала обучения: {group.date_start}</div>

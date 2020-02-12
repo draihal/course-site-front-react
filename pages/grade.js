@@ -3,25 +3,20 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import StudentCourses from '../components/MyCourses/StudentCourses';
-import TeacherGroups from '../components/MyCourses/TeacherGroups';
-import PartnerCourses from '../components/MyCourses/PartnerCourses';
+import GradeSection from "../components/GradePage/GradeSection";
 
 
-const MyCourses = ({ user, token, error }) => (
-  <Layout title="Мои курсы">
-    {(user && (
+const Grade = ({ userId, homework, token, error }) => (
+  <Layout>
+    {(userId && (
       <div>
         {error ? <p className="text-center">{error}</p> : null}
-        <div className="group py-4">
-          {user.student_profile ? <StudentCourses groups={user.student_profile.involved} /> : ""}
-          {user.teacher_profile ? <TeacherGroups groups={user.teacher_profile.involved} /> : ""}
-          {user.partner_profile ? <PartnerCourses /> : ""}
-        </div>
+        <GradeSection homework={homework} teacherId={userId} token={token} />
       </div>
-    )) || 'Пожалуйста войдите!'}
-    <style global jsx>
-      {`
+    )) ||
+    'Пожалуйста войдите!'}
+      <style global jsx>
+        {`
           .main{
             padding-top: 6rem;
           }
@@ -46,20 +41,28 @@ const MyCourses = ({ user, token, error }) => (
   </Layout>
 );
 
-MyCourses.getInitialProps = async ctx => {
+Grade.getInitialProps = async (ctx) => {
   const { token } = ctx.store.getState().authentication;
+  const homeworkId = ctx.query.homework;
   if (token) {
-    const response = await axios.get(`${process.env.basePath}/api/v1/users/`, {
+    const response = await axios.get(`${process.env.basePath}/api/v1/education/homework/${homeworkId}/`, {
       headers: {
         authorization: `JWT ${token}`,
         'Content-Type': 'application/json'
       }
     });
-    const user = response.data.results[0];
+    const homework = response.data;
+    const responseUser = await await axios.get(`${process.env.basePath}/api/v1/users/me/`, {
+      headers: {
+        authorization: `JWT ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    const userId = responseUser.data.id;
     return {
-      user, token
+      userId, homework, token
     };
   }
 };
 
-export default connect(state => state, actions)(MyCourses);
+export default connect(state => state, actions)(Grade);
