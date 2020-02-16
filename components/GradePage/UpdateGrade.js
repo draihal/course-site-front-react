@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 
 
@@ -27,37 +27,37 @@ class UpdateGrade extends React.Component {
     }
   };
   render() {
-    return <div className="group py-4">
-      <div className="container">
+    return <div className='group py-4'>
+      <div className='container'>
         <h2>Домашнее задание от {this.props.homework.student_first_name} {this.props.homework.student_last_name}</h2>
         <hr/>
-        <form className="form-horizontal form-profile" role="form" onSubmit={this.handleSubmit.bind(this)} >
-          <div className="form-group row">
-            <label className="col-lg-2 control-label">Ответ студента</label>
-            <div className="col-lg-10">
-              <input type="text" className="form-control-plaintext" readOnly value={this.props.homework.student_homework} />
+        <form className='form-horizontal form-profile' role='form' onSubmit={this.handleSubmit.bind(this)} >
+          <div className='form-group row'>
+            <label className='col-lg-2 control-label'>Ответ студента</label>
+            <div className='col-lg-10'>
+              <input type='text' className='form-control-plaintext' readOnly value={this.props.homework.student_homework} />
             </div>
           </div>
-          <div className="form-group row">
-            <label className="col-lg-2 control-label">Статус проверки</label>
-            <div className="col-lg-10">
-              <div className="ui-select">
-                <select id="user_country" className="form-control" value={this.state.status}
+          <div className='form-group row'>
+            <label className='col-lg-2 control-label'>Статус проверки</label>
+            <div className='col-lg-10'>
+              <div className='ui-select'>
+                <select id='user_country' className='form-control' value={this.state.status}
                         onChange={e => this.setState({ status: e.target.value })} >
-                  <option value="undone">Не сдано</option>
-                  <option value="check">На проверке</option>
-                  <option value="rework">На доработке</option>
-                  <option value="done">Сдано</option>
+                  <option value='undone'>Не сдано</option>
+                  <option value='check'>На проверке</option>
+                  <option value='rework'>На доработке</option>
+                  <option value='done'>Сдано</option>
                 </select>
               </div>
             </div>
           </div>
-          <div className="form-group row">
-            <label className="col-lg-2 control-label">Оценка</label>
-            <textarea className="col-lg-10 form-control" rows="4" value={this.state.grade}
+          <div className='form-group row'>
+            <label className='col-lg-2 control-label'>Оценка</label>
+            <textarea className='col-lg-10 form-control' rows='4' value={this.state.grade}
                       onChange={e => this.setState({ grade: e.target.value })} required />
           </div>
-          <button className="btn btn-secondary btn-md float-right" type="submit">Изменить</button>
+          <button className='btn btn-secondary btn-md float-right' type='submit'>Изменить</button>
         </form>
       </div>
     </div>

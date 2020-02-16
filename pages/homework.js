@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
@@ -29,17 +29,17 @@ class Homework extends React.Component {
   render() {
     return <Layout>
       {(this.props.user && (
-        <div className="group py-4">
-          <div className="container">
+        <div className='group py-4'>
+          <div className='container'>
             <h2>Домашнее задание: {this.props.title}</h2>
             <hr/>
-            <form className="form-horizontal form-profile" role="form" onSubmit={this.handleSubmit.bind(this)} >
-              <div className="form-group row">
-                <label className="control-label">Решение:</label>
-                  <textarea className="form-control" rows="4" value={this.state.student_homework}
+            <form className='form-horizontal form-profile' role='form' onSubmit={this.handleSubmit.bind(this)} >
+              <div className='form-group row'>
+                <label className='control-label'>Решение:</label>
+                  <textarea className='form-control' rows='4' value={this.state.student_homework}
                          onChange={e => this.setState({ student_homework: e.target.value })} required />
               </div>
-              <button className="btn btn-secondary btn-md float-right" type="submit">Отправить</button>
+              <button className='btn btn-secondary btn-md float-right' type='submit'>Отправить</button>
             </form>
           </div>
         </div>

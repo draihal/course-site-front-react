@@ -1,5 +1,5 @@
-import axios from "axios";
-import { catchAxiosError } from "./error";
+import axios from 'axios';
+import { catchAxiosError } from './error';
 
 
 const baseConfig = {
@@ -9,8 +9,8 @@ const baseConfig = {
 const baseConfigWithHeaders = {
   baseURL: `${process.env.basePath}`,
   headers: {
-    "accept": "application/json",
-    "Content-Type": "application/json"
+    'accept': 'application/json',
+    'Content-Type': 'application/json'
   },
 };
 

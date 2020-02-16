@@ -6,70 +6,70 @@ import Link from 'next/link';
 
 const Navbar = (props) => (
   <div>
-      <nav className="navbar navbar-expand-lg navbar-dark black fixed-top">
-          <div className="container">
-              <Link href="/">
-                  <a className="navbar-brand">Онлайн курсы</a>
+      <nav className='navbar navbar-expand-lg navbar-dark black fixed-top'>
+          <div className='container'>
+              <Link href='/'>
+                  <a className='navbar-brand'>Онлайн курсы</a>
               </Link>
-              <button className="navbar-toggler" type="button" data-toggle="collapse"
-                      data-target="#navbarResponsive">
-                  <span className="navbar-toggler-icon"> </span>
+              <button className='navbar-toggler' type='button' data-toggle='collapse'
+                      data-target='#navbarResponsive'>
+                  <span className='navbar-toggler-icon'> </span>
               </button>
-              <div className="collapse navbar-collapse" id="navbarResponsive">
-                  <ul className="navbar-nav ml-auto">
-                      <li className="nav-item">
-                          <Link href="/#home">
-                              <a className="nav-link">Главная</a>
+              <div className='collapse navbar-collapse' id='navbarResponsive'>
+                  <ul className='navbar-nav ml-auto'>
+                      <li className='nav-item'>
+                          <Link href='/#home'>
+                              <a className='nav-link'>Главная</a>
                           </Link>
                       </li>
-                      <li className="nav-item dropdown">
-                          <a className="nav-link dropdown-toggle" href="index.html#courses"  id="navbarDropdown" role="button"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Курсы</a>
-                          <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a className="dropdown-item" href="#">Категория курса</a>
-                              <a className="dropdown-item" href="#">Другая категория</a>
-                              <a className="dropdown-item" href="#">Еще одна</a>
-                              <a className="dropdown-item" href="#">И еще</a>
+                      <li className='nav-item dropdown'>
+                          <a className='nav-link dropdown-toggle' href='index.html#courses'  id='navbarDropdown' role='button'
+                             data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Курсы</a>
+                          <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+                              <a className='dropdown-item' href='#'>Категория курса</a>
+                              <a className='dropdown-item' href='#'>Другая категория</a>
+                              <a className='dropdown-item' href='#'>Еще одна</a>
+                              <a className='dropdown-item' href='#'>И еще</a>
                           </div>
                       </li>
-                      <li className="nav-item">
-                          <Link href="/#teachers"><a className="nav-link">Преподаватели</a></Link>
+                      <li className='nav-item'>
+                          <Link href='/#teachers'><a className='nav-link'>Преподаватели</a></Link>
                       </li>
-                      <li className="nav-item">
-                          <Link href="/#partners"><a className="nav-link">Работа в компаниях</a></Link>
+                      <li className='nav-item'>
+                          <Link href='/#partners'><a className='nav-link'>Работа в компаниях</a></Link>
                       </li>
-                      <li className="nav-item">
-                          <Link href="/#reviews"><a className="nav-link">Отзывы</a></Link>
+                      <li className='nav-item'>
+                          <Link href='/#reviews'><a className='nav-link'>Отзывы</a></Link>
                       </li>
-                      {!props.isAuthenticated && (<li className="nav-item">
-                          <Link href="/signin">
-                              <a className="nav-link" id="login-icon">
-                                  <FontAwesomeIcon icon={faSignInAlt} size="2x" />
+                      {!props.isAuthenticated && (<li className='nav-item'>
+                          <Link href='/signin'>
+                              <a className='nav-link' id='login-icon'>
+                                  <FontAwesomeIcon icon={faSignInAlt} size='2x' />
                               </a>
                           </Link>
                       </li>)}
-                      {props.isAuthenticated && (<li className="nav-item">
-                          <Link href="/profile">
-                              <a className="nav-link" id="user-icon">
-                                  <FontAwesomeIcon icon={faUserAlt} size="2x" />
+                      {props.isAuthenticated && (<li className='nav-item'>
+                          <Link href='/profile'>
+                              <a className='nav-link' id='user-icon'>
+                                  <FontAwesomeIcon icon={faUserAlt} size='2x' />
                               </a>
                           </Link>
                       </li>)}
-                      {props.isAuthenticated && (<li className="nav-item">
-                          <Link href="/my-courses">
-                          <a className="nav-link" id="bell-icon">
-                              <FontAwesomeIcon icon={faGraduationCap} size="2x" />
+                      {props.isAuthenticated && (<li className='nav-item'>
+                          <Link href='/my-courses'>
+                          <a className='nav-link' id='bell-icon'>
+                              <FontAwesomeIcon icon={faGraduationCap} size='2x' />
                           </a>
                           </Link>
                       </li>)}
-                      {props.isAuthenticated && (<li className="nav-item">
-                          <a className="nav-link" id="bell-icon">
-                              <FontAwesomeIcon icon={faBell} size="2x" />
+                      {props.isAuthenticated && (<li className='nav-item'>
+                          <a className='nav-link' id='bell-icon'>
+                              <FontAwesomeIcon icon={faBell} size='2x' />
                           </a>
                       </li>)}
-                      {props.isAuthenticated && (<li onClick={props.deauthenticate} className="nav-item">
-                          <a className="nav-link" id="logout-icon">
-                              <FontAwesomeIcon icon={faSignOutAlt} size="2x" />
+                      {props.isAuthenticated && (<li onClick={props.deauthenticate} className='nav-item'>
+                          <a className='nav-link' id='logout-icon'>
+                              <FontAwesomeIcon icon={faSignOutAlt} size='2x' />
                           </a>
                       </li>)}
                   </ul>

@@ -1,21 +1,21 @@
-// import axios, { AxiosRequestConfig } from "axios";
-import Cookies from "js-cookie";
-import Router from "next/router";
-// import { LoginInputs } from "../pages/signin";
-import { catchAxiosError } from "./error";
-import { post } from "./rest_service";
+// import axios, { AxiosRequestConfig } from 'axios';
+import Cookies from 'js-cookie';
+import Router from 'next/router';
+// import { LoginInputs } from '../pages/signin';
+import { catchAxiosError } from './error';
+import { post } from './rest_service';
 
 export const COOKIES = {
-  authToken: "courseSite.token"
+  authToken: 'courseSite.token'
 };
 
 export async function login(inputs) {
   const data = new URLSearchParams(inputs);
-  const res = await post("/api/v1/jwt/create/", data).catch(catchAxiosError);
+  const res = await post('/api/v1/jwt/create/', data).catch(catchAxiosError);
   if (res.error) {
     return res.error;
   } else if (!res.data || !res.data.access) {
-    return "Wrong password or username!";
+    return 'Wrong password or username!';
   }
   const token = res.data.access;
   const refreshToken = res.data.refresh;
@@ -28,6 +28,6 @@ export async function login(inputs) {
     // secure: true,
     // sameSite: true,
   });
-  await Router.push("/profile");
+  await Router.push('/profile');
 }
 

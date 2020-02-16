@@ -1,22 +1,22 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import ModuleSection from "../components/GroupPage/ModuleSection";
+import ModuleSection from '../components/GroupPage/ModuleSection';
 
 
 const Group = ({ group }) => {
   return (
     <Layout>
       {(group && (
-        <div className="group py-4">
-          <div className="container">
+        <div className='group py-4'>
+          <div className='container'>
             <h2>Группа: {group.slug}</h2>
             <hr/>
-            <div className="row">
-              <div className="col-md-6">Дата начала обучения: {group.date_start}</div>
-              <div className="col-md-6">Дата окончания обучения: {group.date_end}</div>
+            <div className='row'>
+              <div className='col-md-6'>Дата начала обучения: {group.date_start}</div>
+              <div className='col-md-6'>Дата окончания обучения: {group.date_end}</div>
               <ModuleSection modules={group.module}/>
             </div>
           </div>

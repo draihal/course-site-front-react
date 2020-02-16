@@ -90,7 +90,7 @@ const getUser = ({ token }, type) => {
   console.log(token);
   return (dispatch) => {
     axios.get(`${process.env.basePath}/api/v1/users/me/`,{headers: {
-        "Authorization" : "JWT " + token
+        'Authorization' : 'JWT ' + token
       }
     })
         .then((response) => {

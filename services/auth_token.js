@@ -1,10 +1,10 @@
-import jwtDecode from "jwt-decode";
+import jwtDecode from 'jwt-decode';
 
 
 export class AuthToken {
     constructor(token) {
         this.token = token;
-        this.decodedToken = { user_id: "", exp: 0 };
+        this.decodedToken = { user_id: '', exp: 0 };
         try {
             if (token)
                 this.decodedToken = jwtDecode(token);
@@ -12,7 +12,7 @@ export class AuthToken {
         catch (e) { }
     }
     get expiresAt() {
-        return new Date(this.decodedToken.exp * 1000);  // "exp":1580165326
+        return new Date(this.decodedToken.exp * 1000);  // 'exp':1580165326
     }
     get isExpired() {
         return new Date() > this.expiresAt;

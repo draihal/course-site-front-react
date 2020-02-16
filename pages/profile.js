@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import MainProfileSection from "../components/ProfilePage/MainProfileSection";
+import MainProfileSection from '../components/ProfilePage/MainProfileSection';
 
 
 const Profile = ({ user, token, error }) => (
-  <Layout title="Мой профиль">
+  <Layout title='Мой профиль'>
     {(user && (
       <div>
-        {error ? <p className="text-center">{error}</p> : null}
+        {error ? <p className='text-center'>{error}</p> : null}
         <MainProfileSection user={user} token={token}/>
       </div>
     )) ||
@@ -39,7 +39,7 @@ const Profile = ({ user, token, error }) => (
           .form-control {
             border-radius: 0;
           }
-          // [class*="col-"] {
+          // [class*='col-'] {
           //   padding: 0.5rem;
           // }
           .form-group {
