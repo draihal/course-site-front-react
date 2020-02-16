@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
 
 class ProfileAvatar extends React.Component {
@@ -21,21 +21,21 @@ class ProfileAvatar extends React.Component {
       }
     });
     if (response.status === 200) {
-      alert('Фотогрфаия успешно обновлена!');
+      alert('Фотография успешно обновлена!');
     }
   };
   render() {
-    return <div className="text-center">
-      {this.props.avatar ? <img src={this.props.avatar} alt="avatar" /> : <img src="static/default_user.jpg" alt="avatar" />}
+    return <div className='text-center'>
+      {this.props.avatar ? <img src={this.props.avatar} alt='avatar' /> : <img src='static/default_user.jpg' alt='avatar' />}
       <hr />
       <form onSubmit={this.handleSubmit.bind(this)} >
-        <input type="file"
-               id="image"
-               accept="image/png, image/jpeg"
-               className="form-control"
+        <input type='file'
+               id='image'
+               accept='image/png, image/jpeg'
+               className='form-control'
                onChange={e => this.setState({ avatar: e.target.files[0] })}
                required/>
-        <button className="btn btn-secondary btn-md" type="submit">Изменить</button>
+        <button className='btn btn-secondary btn-md' type='submit'>Изменить</button>
       </form>
     </div>
   }

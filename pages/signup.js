@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Link from 'next/link';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
@@ -37,60 +37,60 @@ class Signup extends React.Component {
   }
   render() {
     return <Layout>
-      <form className="form-registration" onSubmit={this.handleSubmit.bind(this)}>
-        <h1 className="h3 mb-3 font-weight-normal text-center">Регистрация</h1>
-        {/*{error ? <p className="text-center">{error}</p> : null}*/}
-        <label htmlFor="inputName" className="sr-only">Имя</label>
-        <input type="text"
-               id="inputName"
-               name="first_name"
-               className="form-control"
-               placeholder="Имя"
+      <form className='form-registration' onSubmit={this.handleSubmit.bind(this)}>
+        <h1 className='h3 mb-3 font-weight-normal text-center'>Регистрация</h1>
+        {/*{error ? <p className='text-center'>{error}</p> : null}*/}
+        <label htmlFor='inputName' className='sr-only'>Имя</label>
+        <input type='text'
+               id='inputName'
+               name='first_name'
+               className='form-control'
+               placeholder='Имя'
                value={this.state.first_name}
                onChange={e => this.setState({ first_name: e.target.value })}
                required autoFocus />
-        <label htmlFor="inputSurname" className="sr-only">Фамилия</label>
-        <input type="text"
-               id="inputSurname"
-               name="last_name"
-               className="form-control"
-               placeholder="Фамилия"
+        <label htmlFor='inputSurname' className='sr-only'>Фамилия</label>
+        <input type='text'
+               id='inputSurname'
+               name='last_name'
+               className='form-control'
+               placeholder='Фамилия'
                value={this.state.last_name}
                onChange={e => this.setState({ last_name: e.target.value })}
         />
-        <label htmlFor="inputEmail" className="sr-only">Email</label>
-        <input type="email"
-               id="inputEmail"
-               name="email"
-               className="form-control"
-               placeholder="Email"
+        <label htmlFor='inputEmail' className='sr-only'>Email</label>
+        <input type='email'
+               id='inputEmail'
+               name='email'
+               className='form-control'
+               placeholder='Email'
                value={this.state.email}
                onChange={e => this.setState({ email: e.target.value })}
                required />
-        <label htmlFor="inputPassword" className="sr-only">Пароль</label>
-        <input type="password"
-               id="inputPassword"
-               name="password"
-               className="form-control"
-               placeholder="Пароль"
+        <label htmlFor='inputPassword' className='sr-only'>Пароль</label>
+        <input type='password'
+               id='inputPassword'
+               name='password'
+               className='form-control'
+               placeholder='Пароль'
                value={this.state.password}
                onChange={e => this.setState({ password: e.target.value })}
                required />
-        <label htmlFor="inputPhone" className="sr-only">Телефонный номер</label>
-        <input type="tel"
-               id="inputPhone"
-               name="phone_number"
-               className="form-control"
-               placeholder="Телефонный номер"
+        <label htmlFor='inputPhone' className='sr-only'>Телефонный номер</label>
+        <input type='tel'
+               id='inputPhone'
+               name='phone_number'
+               className='form-control'
+               placeholder='Телефонный номер'
                value={this.state.phone_number}
                onChange={e => this.setState({ phone_number: e.target.value })}
                required />
-        <div className="btn-group btn-group-toggle" data-toggle="buttons">
-          <label className="btn btn-outline-secondary active">
-            <input type="radio"
-                   name="is_student"
-                   id="option1"
-                   autoComplete="off"
+        <div className='btn-group btn-group-toggle' data-toggle='buttons'>
+          <label className='btn btn-outline-secondary active'>
+            <input type='radio'
+                   name='is_student'
+                   id='option1'
+                   autoComplete='off'
                    defaultChecked={this.state.is_student}
                    onClick={e => this.setState({
                      is_student: true,
@@ -98,11 +98,11 @@ class Signup extends React.Component {
                      is_partner: false })}
             /> Студент
           </label>
-          <label className="btn btn-outline-secondary">
-            <input type="radio"
-                   name="is_teacher"
-                   id="option2"
-                   autoComplete="off"
+          <label className='btn btn-outline-secondary'>
+            <input type='radio'
+                   name='is_teacher'
+                   id='option2'
+                   autoComplete='off'
                    defaultChecked={this.state.is_teacher}
                    onClick={e => this.setState({
                      is_teacher: true,
@@ -110,11 +110,11 @@ class Signup extends React.Component {
                      is_partner: false })}
             /> Преподаватель
           </label>
-          <label className="btn btn-outline-secondary">
-            <input type="radio"
-                   name="is_partner"
-                   id="option3"
-                   autoComplete="off"
+          <label className='btn btn-outline-secondary'>
+            <input type='radio'
+                   name='is_partner'
+                   id='option3'
+                   autoComplete='off'
                    defaultChecked={this.state.is_partner}
                    onClick={e => this.setState({
                      is_partner: true,
@@ -123,9 +123,9 @@ class Signup extends React.Component {
             /> Партнер
           </label>
         </div>
-        <button className="btn btn-lg btn-secondary btn-block" type="submit">Зарегистрироваться</button>
-        <p className="mt-5 mb-3 text-muted text-center">Уже зарегистрированы?</p>
-        <Link href="/signin"><button className="btn btn-lg btn-secondary btn-block" type="login">Войти</button></Link>
+        <button className='btn btn-lg btn-secondary btn-block' type='submit'>Зарегистрироваться</button>
+        <p className='mt-5 mb-3 text-muted text-center'>Уже зарегистрированы?</p>
+        <Link href='/signin'><button className='btn btn-lg btn-secondary btn-block' type='login'>Войти</button></Link>
       </form>
       <style global jsx>{`
         .main{
@@ -169,13 +169,13 @@ class Signup extends React.Component {
         .form-registration input{
           border-radius: 0;
         }
-        .form-registration input[type="name"] {
+        .form-registration input[type='name'] {
           margin-bottom: -1px;
         }
-        .form-registration input[type="phone"] {
+        .form-registration input[type='phone'] {
           margin-bottom: 10px;
         }
-        .form-registration button[type="submit"] {
+        .form-registration button[type='submit'] {
           margin-top: 10px;
         }
         .form-registration .btn-group {

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import AddGrade from './AddGrade';
 import UpdateGrade from './UpdateGrade';
 

@@ -1,6 +1,6 @@
-import '../styles/styles.scss'
-import '../styles/fixed.scss'
-import '../styles/fortawesome.scss'
+import '../styles/styles.scss';
+import '../styles/fixed.scss';
+import '../styles/fortawesome.scss';
 import { Provider } from 'react-redux';
 import App from 'next/app';
 import withRedux from 'next-redux-wrapper';

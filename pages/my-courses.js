@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
@@ -9,14 +9,14 @@ import PartnerCourses from '../components/MyCourses/PartnerCourses';
 
 
 const MyCourses = ({ user, token, error }) => (
-  <Layout title="Мои курсы">
+  <Layout title='Мои курсы'>
     {(user && (
       <div>
-        {error ? <p className="text-center">{error}</p> : null}
-        <div className="group py-4">
-          {user.student_profile ? <StudentCourses groups={user.student_profile.involved} /> : ""}
-          {user.teacher_profile ? <TeacherGroups groups={user.teacher_profile.involved} /> : ""}
-          {user.partner_profile ? <PartnerCourses /> : ""}
+        {error ? <p className='text-center'>{error}</p> : null}
+        <div className='group py-4'>
+          {user.student_profile ? <StudentCourses groups={user.student_profile.involved} /> : ''}
+          {user.teacher_profile ? <TeacherGroups groups={user.teacher_profile.involved} /> : ''}
+          {user.partner_profile ? <PartnerCourses /> : ''}
         </div>
       </div>
     )) || 'Пожалуйста войдите!'}

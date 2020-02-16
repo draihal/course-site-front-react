@@ -1,12 +1,12 @@
 import Layout from '../components/Layout';
-import HomeSection from "../components/indexPage/HomeSection";
-import CoursesSection from "../components/indexPage/CoursesSection";
-import TeacherSection from "../components/indexPage/TeacherSection";
-import PartnersSection from "../components/indexPage/PartnersSection";
-import ReviewsSection from "../components/indexPage/ReviewsSection";
+import HomeSection from '../components/indexPage/HomeSection';
+import CoursesSection from '../components/indexPage/CoursesSection';
+import TeacherSection from '../components/indexPage/TeacherSection';
+import PartnersSection from '../components/indexPage/PartnersSection';
+import ReviewsSection from '../components/indexPage/ReviewsSection';
 import fetch from 'isomorphic-unfetch';
-import axios from "axios";
-import {catchAxiosError} from "../services/error";
+import axios from 'axios';
+import {catchAxiosError} from '../services/error';
 
 
 const Homepage = ({errorCode, indexPage}) => {

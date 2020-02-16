@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import GradeSection from "../components/GradePage/GradeSection";
+import GradeSection from '../components/GradePage/GradeSection';
 
 
 const Grade = ({ userId, homework, token, error }) => (
   <Layout>
     {(userId && (
       <div>
-        {error ? <p className="text-center">{error}</p> : null}
+        {error ? <p className='text-center'>{error}</p> : null}
         <GradeSection homework={homework} teacherId={userId} token={token} />
       </div>
     )) ||

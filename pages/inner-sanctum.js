@@ -1,38 +1,38 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import Layout from '../components/Layout';
-import StudentsHomework from "../components/InnerSanctum/StudentsHomework";
+import StudentsHomework from '../components/InnerSanctum/StudentsHomework';
 
 
 const InnerSanctum = ({ group }) => {
   return (
-    <Layout title="Кабинет преподавателя">
+    <Layout title='Кабинет преподавателя'>
       {(group && (
-        <div className="group py-4">
-          <div className="container">
+        <div className='group py-4'>
+          <div className='container'>
             <h2>Группа: {group.slug}</h2>
             <hr/>
-            <div className="row">
-              <div className="col-md-6">Дата начала обучения: {group.date_start}</div>
-              <div className="col-md-6">Дата окончания обучения: {group.date_end}</div>
-              <div className="col-md-12">
+            <div className='row'>
+              <div className='col-md-6'>Дата начала обучения: {group.date_start}</div>
+              <div className='col-md-6'>Дата окончания обучения: {group.date_end}</div>
+              <div className='col-md-12'>
                 {group.module.map(module => (
                   <div key={module.id}>
                     <h3>Модуль: {module.name}</h3>
                     <hr/>
-                    <div className="col-md-12">
+                    <div className='col-md-12'>
                       {module.lessons.map(lesson => (
                         <div key={lesson.id}>
-                          <div className="row">
-                            <div className="col-md-6">
+                          <div className='row'>
+                            <div className='col-md-6'>
                               <div><strong>Урок {lesson.number}: {lesson.name}</strong></div>
                               <div>Описание: {lesson.description}</div>
                               <div>Дата проведения: {new Date(lesson.datetime).toString()}</div>
                               <div>Ссылка на трансляцию: <a href={lesson.url_translation}>Перейти</a></div>
                             </div>
-                            <div className="col-md-6">
+                            <div className='col-md-6'>
                               <div><strong>Домашнее задание:</strong> {lesson.homework_title}</div>
                               <div>Описание: {lesson.homework_description}</div>
                               <div>Дата сдачи до: {lesson.homework_date}</div>
