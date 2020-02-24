@@ -30,7 +30,7 @@ const CoursesSection = props => (
                             <div className='col-md-4'>
                                 <div className='feature'>
                                     <FontAwesomeIcon icon={faUser} size='4x' transform='shrink-3 up-5' />
-                                    <h3>{props.number_of_groups} Групп</h3>
+                                    <h3>{props.number_of_groups} групп</h3>
                                     <p>Еще какой-то текст!</p>
                                 </div>
                             </div>

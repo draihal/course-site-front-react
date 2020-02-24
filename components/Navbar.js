@@ -43,32 +43,32 @@ const Navbar = (props) => (
                       </li>
                       {!props.isAuthenticated && (<li className='nav-item'>
                           <Link href='/signin'>
-                              <a className='nav-link' id='login-icon'>
+                              <a className='nav-link' id='login-icon' data-testid='signin-link'>
                                   <FontAwesomeIcon icon={faSignInAlt} size='2x' />
                               </a>
                           </Link>
                       </li>)}
                       {props.isAuthenticated && (<li className='nav-item'>
                           <Link href='/profile'>
-                              <a className='nav-link' id='user-icon'>
+                              <a className='nav-link' id='user-icon' data-testid='profile-link'>
                                   <FontAwesomeIcon icon={faUserAlt} size='2x' />
                               </a>
                           </Link>
                       </li>)}
                       {props.isAuthenticated && (<li className='nav-item'>
                           <Link href='/my-courses'>
-                          <a className='nav-link' id='bell-icon'>
+                          <a className='nav-link' id='bell-icon' data-testid='my-courses-link'>
                               <FontAwesomeIcon icon={faGraduationCap} size='2x' />
                           </a>
                           </Link>
                       </li>)}
                       {props.isAuthenticated && (<li className='nav-item'>
-                          <a className='nav-link' id='bell-icon'>
+                          <a className='nav-link' id='bell-icon' data-testid='bell-link'>
                               <FontAwesomeIcon icon={faBell} size='2x' />
                           </a>
                       </li>)}
                       {props.isAuthenticated && (<li onClick={props.deauthenticate} className='nav-item'>
-                          <a className='nav-link' id='logout-icon'>
+                          <a className='nav-link' id='logout-icon' data-testid='deauthenticate-link'>
                               <FontAwesomeIcon icon={faSignOutAlt} size='2x' />
                           </a>
                       </li>)}

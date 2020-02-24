@@ -39,10 +39,10 @@ class UpdateGrade extends React.Component {
             </div>
           </div>
           <div className='form-group row'>
-            <label className='col-lg-2 control-label'>Статус проверки</label>
+            <label htmlFor='grade_status' className='col-lg-2 control-label'>Статус проверки</label>
             <div className='col-lg-10'>
               <div className='ui-select'>
-                <select id='user_country' className='form-control' value={this.state.status}
+                <select id='grade_status' className='form-control' value={this.state.status}
                         onChange={e => this.setState({ status: e.target.value })} >
                   <option value='undone'>Не сдано</option>
                   <option value='check'>На проверке</option>
@@ -53,9 +53,10 @@ class UpdateGrade extends React.Component {
             </div>
           </div>
           <div className='form-group row'>
-            <label className='col-lg-2 control-label'>Оценка</label>
+            <label htmlFor='grade_textarea' className='col-lg-2 control-label'>Оценка</label>
             <textarea className='col-lg-10 form-control' rows='4' value={this.state.grade}
-                      onChange={e => this.setState({ grade: e.target.value })} required />
+                      onChange={e => this.setState({ grade: e.target.value })}
+                      id='grade_textarea' required />
           </div>
           <button className='btn btn-secondary btn-md float-right' type='submit'>Изменить</button>
         </form>

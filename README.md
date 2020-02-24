@@ -13,3 +13,8 @@ The base project dependencies:
 - react
 
 The complete list of dependencies can be found at package.json file.
+
+## Tests
+```
+npm run test
+```
