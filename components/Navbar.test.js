@@ -15,7 +15,7 @@ describe('Navbar', () => {
     expect(queryByTestId('signin-link')).toBeTruthy();
     expect(queryByTestId('profile-link')).toBeFalsy();
     expect(queryByTestId('my-courses-link')).toBeFalsy();
-    expect(queryByTestId('bell-link')).toBeFalsy();
+    // expect(queryByTestId('bell-link')).toBeFalsy();
     expect(queryByTestId('deauthenticate-link')).toBeFalsy();
   });
 
@@ -24,7 +24,7 @@ describe('Navbar', () => {
     expect(queryByTestId('signin-link')).toBeFalsy();
     expect(queryByTestId('profile-link')).toBeTruthy();
     expect(queryByTestId('my-courses-link')).toBeTruthy();
-    expect(queryByTestId('bell-link')).toBeTruthy();
+    // expect(queryByTestId('bell-link')).toBeTruthy();
     expect(queryByTestId('deauthenticate-link')).toBeTruthy();
   });
 

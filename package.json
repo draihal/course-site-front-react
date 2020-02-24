@@ -11,7 +11,8 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:update": "jest --updateSnapshot",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -51,9 +52,9 @@
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
     "babel-jest": "^25.1.0",
+    "cypress": "^4.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
-    "react-test-renderer": "^16.12.0",
-    "redux-mock-store": "^1.5.4"
+    "react-test-renderer": "^16.12.0"
   }
 }

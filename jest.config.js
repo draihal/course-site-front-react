@@ -6,6 +6,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/config/**',
     '!**/coverage/**',
+    '!**/cypress/**',
   ],
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
