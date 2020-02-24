@@ -1,6 +1,5 @@
 describe('The SignIn Page', function () {
   it('sets auth cookie when logging in via form submission', function () {
-    // destructuring assignment of the this.currentUser object
     const email = 'studenttest1@dot.com';
     const password = '+79271111133';
 
