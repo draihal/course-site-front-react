@@ -1,7 +1,9 @@
 # Next.js (React) Courses Site
 > This is a courses site on Next.js (React) built for learning.
-
-
+---
+# Attention!
+Project moved to https://github.com/draihal/course-site
+---
 ## About
 This is a courses site on Next.js (React)
 
